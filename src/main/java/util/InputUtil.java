@@ -61,8 +61,7 @@ public class InputUtil {
         while (true) {
             System.out.print(prompt + " (số nguyên): ");
             try {
-                int value = Integer.parseInt(scanner.nextLine().trim());
-                return value;
+                return Integer.parseInt(scanner.nextLine().trim());
             } catch (NumberFormatException e) {
                 System.out.println(RED + "Giá trị không hợp lệ. Vui lòng nhập lại số nguyên." + RESET);
             }
