@@ -5,6 +5,8 @@ import model.Role;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import static util.ConsoleColor.*;
+
 /**
  * Utility class để đọc dữ liệu từ người dùng với validation cơ bản.
  */
@@ -24,7 +26,7 @@ public class InputUtil {
         do {
             username = readString(prompt);
             if (username.trim().isEmpty()) {
-                System.out.println("Tên đăng nhập không được để trống.");
+                System.out.println(RED + "Tên đăng nhập không được để trống." + RESET);
             }
         } while (username.trim().isEmpty());
         return username;
@@ -35,7 +37,7 @@ public class InputUtil {
         do {
             password = readString(prompt);
             if (password.length() < 6) {
-                System.out.println("Mật khẩu phải có ít nhất 6 ký tự.");
+                System.out.println(RED + "Mật khẩu phải có ít nhất 6 ký tự." + RESET);
             }
         } while (password.length() < 6);
         return password;
@@ -46,7 +48,7 @@ public class InputUtil {
         do {
             input = readString(prompt);
             if (input.trim().isEmpty()) {
-                System.out.println("Trường này không được để trống!");
+                System.out.println(RED + "Trường này không được để trống!" + RESET);
             }
         } while (input.trim().isEmpty());
         return input;
@@ -62,7 +64,7 @@ public class InputUtil {
                 int value = Integer.parseInt(scanner.nextLine().trim());
                 return value;
             } catch (NumberFormatException e) {
-                System.out.println("Giá trị không hợp lệ. Vui lòng nhập lại số nguyên.");
+                System.out.println(RED + "Giá trị không hợp lệ. Vui lòng nhập lại số nguyên." + RESET);
             }
         }
     }
@@ -76,7 +78,7 @@ public class InputUtil {
             if (value >= min && value <= max) {
                 return value;
             }
-            System.out.printf("Vui lòng nhập số trong khoảng từ %d đến %d.%n", min, max);
+            System.out.printf(RED + "Vui lòng nhập số trong khoảng từ %d đến %d.%n" + RESET, min, max);
         }
     }
 
@@ -97,7 +99,7 @@ public class InputUtil {
             try {
                 return Role.valueOf(input);
             } catch (IllegalArgumentException e) {
-                System.out.println("Giá trị role không hợp lệ. Nhập ADMIN hoặc USER.");
+                System.out.println(RED + "Giá trị role không hợp lệ. Nhập ADMIN hoặc USER." + RESET);
             }
         }
     }
